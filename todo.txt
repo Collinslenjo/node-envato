@@ -1,0 +1,4 @@
+AUTH = https://api.envato.com/authorization?response_type=code&client_id=[CLIENT ID]&redirect_uri=[REDIRECT URI]
+
+SECRET_KEY = DLfFXIQr4aHBK7Q42DlWQ7W7adgN1gEN
+OAUTH_CLIENTID = getpaid-fahxhpwh

@@ -9,4 +9,4 @@ Envato Api Connector to GetPaid
 ### How To ###
   * clone the App
   * cd into the directory and run ```npm install```
-  * run the App by running ```node index.js```
+  * run the App by running ```npm start```
