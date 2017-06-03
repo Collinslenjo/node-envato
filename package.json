@@ -1,0 +1,25 @@
+{
+  "name": "node-envato",
+  "version": "1.0.0",
+  "description": "Getpaid Envato Api connector",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Collins_lenjo@bitbucket.org/Collins_lenjo/node-envato.git"
+  },
+  "keywords": [
+    "envato",
+    "getpaid",
+    "apis"
+  ],
+  "author": "Collinslenjo",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/Collins_lenjo/node-envato#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.3"
+  }
+}
