@@ -8,3 +8,33 @@
 	width: 15%;
 	margin-left: 1%;
 }
+
+.product{
+	float: left;
+	width: 30%;
+	margin: 10px 0 0 2.5%;
+	border: 1px solid grey;
+	padding: 5px;
+	border-radius: 5px;
+}
+.thumbnail{
+	width: 100%;
+	background: orange;
+	height: 250px;
+}
+.title{
+	width: 100%;
+	text-align: center;
+}
+.description{
+	width: 100%;
+	text-align: center;
+}
+.action{
+	width: 100%;
+}
+.kati{
+	text-align: center;
+	margin-left: 30%;
+	margin-top: 10px;
+}
