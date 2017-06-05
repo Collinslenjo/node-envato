@@ -2,3 +2,6 @@ AUTH = https://api.envato.com/authorization?response_type=code&client_id=[CLIENT
 
 SECRET_KEY = DLfFXIQr4aHBK7Q42DlWQ7W7adgN1gEN
 OAUTH_CLIENTID = getpaid-fahxhpwh
+PERSONAL_TOKEN = VFml6km0EInbIw5GgjawYgB5Jlw5yP11
+
+URL = https://api.envato.com/v1/discovery/search/search/item?term=dog&site=photodune.net&size=xs

@@ -2,6 +2,10 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const flash = require('connect-flash');
+const session = require('express-session');
+const request = require('request');
+
 const config = require('./config.js');
 
 // Init App
@@ -13,29 +17,49 @@ app.use(bodyParser.urlencoded({extended : false}));
 app.use(cookieParser());
 
 //Load view Engine
-app.engine('html', require('ejs').renderFile);
+app.engine('ejs', require('ejs').renderFile);
 app.set('views', path.join(__dirname,'views'));
-app.set('view engine', 'html');
+app.set('view engine', 'ejs');
 
 //Load styles
 app.use('/scripts', express.static(__dirname + '/node_modules/bootstrap/dist/'));
 app.use('/jq', express.static(__dirname + '/node_modules/jquery/dist/'));
 app.use('/myst', express.static(path.join(__dirname,'public')));
 
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}));
+
+app.use(flash());
+
 //Home route
 app.get('/', function(req,res){
-	res.render('index.html');
+	res.render('index',{messages: req.flash('messages') });
 });
 // Api service
 app.get('/api', function(req,res){
-	res.render('api.html');
+	res.render('api');
 });
 
 /*
  * Run All the validation Stuff and post to envato and get results back
 */
 app.post('/search',function(req,res){
-	console.log(req.body);
+	var dog = req.body.search;
+	var options = {
+	  url: 'https://api.envato.com/v1/discovery/search/search/item?term='+dog+'&site=themeforest.net',
+	  headers: {
+	    'Authorization': 'Bearer VFml6km0EInbIw5GgjawYgB5Jlw5yP11'
+	  }
+	};
+	function callback(err, body){
+       //res is the response object, and it passes info back to client side
+      res.json(body);
+  	}
+  request(options, callback);
 });
 
 //start Server
