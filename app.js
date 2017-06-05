@@ -35,8 +35,6 @@ app.get('/api', function(req,res){
 */
 app.post('/search',function(req,res){
 	console.log(req.body);
-	console.log('Favorited: ', 'https://twitter.com/${client_id}/status/${secret_key}')
-	"https://api.envato.com/authorization?response_type=code&client_id=${username}&redirect_uri=${username}"
 });
 
 //start Server
