@@ -40,3 +40,15 @@ app.post('/search',function(req,res){
 app.listen(3000,function (argument) {
 	console.log("Local Development server started on **localhost:3000**");
 })
+
+const forceSSL = function() {
+  return function (req, res, next) {
+    if (req.headers['x-forwarded-proto'] !== 'https') {
+      return res.redirect(
+       ['https://', req.get('Host'), req.url].join('')
+      );
+    }
+    next();
+  }
+}
+app.use(forceSSL());
