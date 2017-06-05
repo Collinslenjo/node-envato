@@ -29,7 +29,6 @@ app.get('/api', function(req,res){
 	res.render('api.html');
 });
 
-
 /*
  * Run All the validation Stuff and post to envato and get results back
 */
