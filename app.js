@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const config = require('./config.js');
 
 // Init App
@@ -9,6 +10,7 @@ const app = express();
 //BodyParser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : false}));
+app.use(cookieParser());
 
 //Load view Engine
 app.engine('html', require('ejs').renderFile);
@@ -39,16 +41,6 @@ app.post('/search',function(req,res){
 //start Server
 app.listen(3000,function (argument) {
 	console.log("Local Development server started on **localhost:3000**");
-})
+});
 
-const forceSSL = function() {
-  return function (req, res, next) {
-    if (req.headers['x-forwarded-proto'] !== 'https') {
-      return res.redirect(
-       ['https://', req.get('Host'), req.url].join('')
-      );
-    }
-    next();
-  }
-}
-app.use(forceSSL());
+module.exports = app;
