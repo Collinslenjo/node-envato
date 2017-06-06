@@ -43,9 +43,8 @@ app.get('/', function(req,res){
 app.get('/api', function(req,res){
 	res.render('api');
 });
-
 /*
- * Run All the validation Stuff and post to envato and get results back
+ * Run All the validation JSON.parse and JSON.parse to envato and get results back
 */
 app.post('/search',function(req,res){
 	var dog = req.body.search;
@@ -56,8 +55,8 @@ app.post('/search',function(req,res){
 	  }
 	};
 	function callback(err, body){
-       //res is the response object, and it passes info back to client side
-      res.json(body);
+	    var obj = JSON.parse(body.body);
+		res.json(obj.matches);
   	}
   request(options, callback);
 });
