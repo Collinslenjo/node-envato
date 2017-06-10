@@ -51,7 +51,7 @@ app.post('/search',function(req,res){
 	var options = {
 	  url: 'https://api.envato.com/v1/discovery/search/search/item?term='+dog+'&site=themeforest.net',
 	  headers: {
-	    'Authorization': 'Bearer VFml6km0EInbIw5GgjawYgB5Jlw5yP11'
+	    'Authorization': 'Bearer xxxxxxxxxx'
 	  }
 	};
 	function callback(err, body){
